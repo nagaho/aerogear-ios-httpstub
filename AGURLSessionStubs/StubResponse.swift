@@ -26,10 +26,31 @@ public class StubResponse {
     let requestTime: NSTimeInterval  = 0.0
     let responseTime: NSTimeInterval = 0.0
     
+    public enum Location {
+        case Bundle(NSBundle)
+        case Documents
+    }
+    
     public init(data: NSData, statusCode: Int, headers: Dictionary<String, String>) {
         self.data = data
         self.statusCode = statusCode
         self.headers = headers
         self.dataSize = data.length
+    }
+    
+    convenience public init(filename: String, location: Location, statusCode: Int, headers: Dictionary<String, String>) {
+        var filePath: String?
+        
+        switch location {
+            case .Bundle(let bundle):
+                filePath = bundle.pathForResource(filename.stringByDeletingPathExtension, ofType: filename.pathExtension)
+            case .Documents:
+                let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+                filePath = documentsPath.stringByAppendingPathComponent(filename)
+        }
+                
+        let data = NSData(contentsOfFile:filePath!, options:NSDataReadingOptions.DataReadingMappedIfSafe, error: nil) ?? NSData()
+
+        self.init(data: data, statusCode: statusCode, headers: headers)
     }
 }

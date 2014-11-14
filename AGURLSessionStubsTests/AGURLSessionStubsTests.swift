@@ -141,4 +141,80 @@ class AGURLSessionStubsTests: XCTestCase {
         
         waitForExpectationsWithTimeout(10, handler: nil)
     }
+    
+    func testStubWithLocalJsonFileInBundle() {
+        StubsManager.stubRequestsPassingTest({ (request: NSURLRequest!) -> Bool in
+            return true
+            }, withStubResponse:( { (request: NSURLRequest!) -> StubResponse in
+                return StubResponse(filename: "stub.json", location:.Bundle(NSBundle(forClass: AGURLSessionStubsTests.self)), statusCode: 200, headers: ["Content-Type" : "text/json"])
+            }))
+        
+        // async test expectation
+        let registrationExpectation = expectationWithDescription("testStubWithNSURLSessionDefaultConfiguration");
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://server.com")!)
+        
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config)
+        
+        let task = session.dataTaskWithRequest(request) {(data, response, error) in
+            XCTAssertNil(error, "unexpected error")
+            XCTAssertNotNil(data, "response should contain data")
+            
+            // verify mocked JSON response
+            let response = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: nil) as [String: AnyObject]
+            XCTAssertTrue(response["firstname"] as String == "John")
+            XCTAssertTrue(response["lastname"] as String == "Smith")
+            XCTAssertTrue(response["age"] as Int == 25)
+
+            registrationExpectation.fulfill()
+        }
+        
+        task.resume()
+        
+        waitForExpectationsWithTimeout(10, handler: nil)
+    }
+    
+    func testStubWithLocalJsonFileInDocuments() {
+        // extract 'Documents' directory path
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+        // copy stubbed json file located in the test bundle  to 'Documents directory to perform our test
+        let filename = "stub.json"
+        NSFileManager.defaultManager().copyItemAtPath(NSBundle(forClass: AGURLSessionStubsTests.self).pathForResource(filename.stringByDeletingPathExtension, ofType: filename.pathExtension)!, toPath: documentsPath.stringByAppendingPathComponent(filename),  error: nil)
+        
+        StubsManager.stubRequestsPassingTest({ (request: NSURLRequest!) -> Bool in
+            return true
+            }, withStubResponse:( { (request: NSURLRequest!) -> StubResponse in
+                return StubResponse(filename: filename, location:.Documents, statusCode: 200, headers: ["Content-Type" : "text/json"])
+            }))
+        
+        // async test expectation
+        let registrationExpectation = expectationWithDescription("testStubWithNSURLSessionDefaultConfiguration");
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "http://server.com")!)
+        
+        let config = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: config)
+        
+        let task = session.dataTaskWithRequest(request) {(data, response, error) in
+            XCTAssertNil(error, "unexpected error")
+            XCTAssertNotNil(data, "response should contain data")
+            
+            // verify mocked JSON response
+            let response = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: nil) as [String: AnyObject]
+            XCTAssertTrue(response["firstname"] as String == "John")
+            XCTAssertTrue(response["lastname"] as String == "Smith")
+            XCTAssertTrue(response["age"] as Int == 25)
+            
+            registrationExpectation.fulfill()
+            
+            // delete file from 'Documents' directory
+            NSFileManager.defaultManager().removeItemAtPath(documentsPath.stringByAppendingPathComponent(filename), error:nil)
+            
+        }
+        
+        task.resume()
+        
+        waitForExpectationsWithTimeout(10, handler: nil)
+    }
 }

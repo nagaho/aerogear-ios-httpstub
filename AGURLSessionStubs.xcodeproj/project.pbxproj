@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6F1A72881A16825E0064233D /* AGURLSessionStubs.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3C40A1197BCCD80072D66A /* AGURLSessionStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6F3C40A7197BCCD80072D66A /* AGURLSessionStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = 6F3C40A6197BCCD80072D66A /* AGURLSessionStubs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6F3C40AD197BCCD80072D66A /* AGURLSessionStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F3C40A1197BCCD80072D66A /* AGURLSessionStubs.framework */; };
 		6F3C40B4197BCCD80072D66A /* AGURLSessionStubsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3C40B3197BCCD80072D66A /* AGURLSessionStubsTests.swift */; };
@@ -39,6 +40,20 @@
 			remoteInfo = AGURLSessionStubs;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6F1A72871A1682510064233D /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6F1A72881A16825E0064233D /* AGURLSessionStubs.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6F3C40A1197BCCD80072D66A /* AGURLSessionStubs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AGURLSessionStubs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +182,7 @@
 				6F3C40A8197BCCD80072D66A /* Sources */,
 				6F3C40A9197BCCD80072D66A /* Frameworks */,
 				6F3C40AA197BCCD80072D66A /* Resources */,
+				6F1A72871A1682510064233D /* Copy Frameworks */,
 			);
 			buildRules = (
 			);

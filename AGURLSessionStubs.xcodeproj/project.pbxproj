@@ -14,6 +14,7 @@
 		6F3C40C0197BCD3C0072D66A /* StubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3C40BD197BCD3C0072D66A /* StubResponse.swift */; };
 		6F3C40C1197BCD3C0072D66A /* StubsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3C40BE197BCD3C0072D66A /* StubsManager.swift */; };
 		6F3C40C2197BCD3C0072D66A /* StubURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3C40BF197BCD3C0072D66A /* StubURLProtocol.swift */; };
+		6FE049B31A1606F700BDC34C /* stub.json in Resources */ = {isa = PBXBuildFile; fileRef = 6FE049B21A1606F700BDC34C /* stub.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		6F3C40BD197BCD3C0072D66A /* StubResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubResponse.swift; sourceTree = "<group>"; };
 		6F3C40BE197BCD3C0072D66A /* StubsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubsManager.swift; sourceTree = "<group>"; };
 		6F3C40BF197BCD3C0072D66A /* StubURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubURLProtocol.swift; sourceTree = "<group>"; };
+		6FE049B21A1606F700BDC34C /* stub.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stub.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				6F3C40B2197BCCD80072D66A /* Info.plist */,
+				6FE049B21A1606F700BDC34C /* stub.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FE049B31A1606F700BDC34C /* stub.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

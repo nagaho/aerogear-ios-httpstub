@@ -6,6 +6,8 @@ A small library inspired by [OHHTTPStubs](https://github.com/AliSoftware/OHHTTPS
 
 ## Example Usage
 
+#### Initialize from an NSData
+
 ```swift
 // set up http stub
 StubsManager.stubRequestsPassingTest({ (request: NSURLRequest!) -> Bool in
@@ -33,6 +35,25 @@ task.resume()
 
 waitForExpectationsWithTimeout(10, handler: nil)
 ```
+#### Initialize from a file located in either a Bundle or a Documents Directory
+
+```swift
+// set up http stub from a stubbed file located in the test bundle
+StubsManager.stubRequestsPassingTest({ (request: NSURLRequest!) -> Bool in
+    return true
+}, withStubResponse:( { (request: NSURLRequest!) -> StubResponse in
+     return StubResponse(filename: "mystubbedjson.json", location:.Bundle(NSBundle(forClass: AGURLSessionStubsTests.self)), statusCode: 200, headers: ["Content-Type" : "text/json"])
+}))
+
+// or
+// set up http stub from a stubbed file located in the 'Documents' directory
+StubsManager.stubRequestsPassingTest({ (request: NSURLRequest!) -> Bool in
+    return true
+}, withStubResponse:( { (request: NSURLRequest!) -> StubResponse in
+     return StubResponse(filename: "mystubbedjson.json", location:.Documents, statusCode: 200, headers: ["Content-Type" : "text/json"])
+}))
+```
+
 ## Adding this library to your project
 To use AGURLSessionStubs to test your iOS applications, follow these 3 easy steps:
 
@@ -64,6 +85,3 @@ See project [aerogear-ios-http](https://github.com/aerogear/aerogear-ios-http) a
 ### 3. Start using it!
 
 If you run into any problems, please [file an issue](http://issues.jboss.org/browse/AEROGEAR) and join our [mailing list](https://lists.jboss.org/mailman/listinfo/aerogear-dev)
-
-
-

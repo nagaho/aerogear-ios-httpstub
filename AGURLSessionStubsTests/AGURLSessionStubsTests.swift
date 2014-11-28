@@ -178,6 +178,12 @@ class AGURLSessionStubsTests: XCTestCase {
     func testStubWithLocalJsonFileInDocuments() {
         // extract 'Documents' directory path
         let documentsPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as String
+    
+        // care for the case 'Documents' dir does not exist
+        if (!NSFileManager.defaultManager().fileExistsAtPath(documentsPath)) {
+            NSFileManager.defaultManager().createDirectoryAtPath(documentsPath, withIntermediateDirectories: true, attributes: nil, error: nil)
+        }
+
         // copy stubbed json file located in the test bundle  to 'Documents directory to perform our test
         let filename = "stub.json"
         NSFileManager.defaultManager().copyItemAtPath(NSBundle(forClass: AGURLSessionStubsTests.self).pathForResource(filename.stringByDeletingPathExtension, ofType: filename.pathExtension)!, toPath: documentsPath.stringByAppendingPathComponent(filename),  error: nil)

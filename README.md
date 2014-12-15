@@ -58,7 +58,7 @@ StubsManager.stubRequestsPassingTest({ (request: NSURLRequest!) -> Bool in
 To add the library in your project, you can either use [Cocoapods](http://cocoapods.org) or simply drag the library in your project. See the respective sections below for instructions
 
 ### Using [Cocoapods](http://cocoapods.org)
-At this time, Cocoapods support for Swift frameworks is supported in a preview [branch](https://github.com/CocoaPods/CocoaPods/tree/swift) but tests shown that it's pretty stable to use. Simply [include a Gemfile](http://swiftwala.com/cocoapods-is-ready-for-swift/) in your project pointing to that branch and in your ```Podfile``` add:
+At this time, Cocoapods support for Swift frameworks is supported in a preview [branch](https://github.com/CocoaPods/CocoaPods/tree/swift). Simply [include a Gemfile](http://swiftwala.com/cocoapods-is-ready-for-swift/) in your project pointing to that branch and in your ```Podfile``` add:
 
 ```
 pod 'AGURLSessionStubs'

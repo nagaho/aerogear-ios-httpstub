@@ -2,7 +2,7 @@
 
 A small library inspired by [OHHTTPStubs](https://github.com/AliSoftware/OHHTTPStubs) to stub your network requests written in Swift.
 
-> This module is beta software, it currently supports Xcode 6.1
+> This module is beta software, it currently supports Xcode 6.1.1
 
 ## Example Usage
 
@@ -55,19 +55,19 @@ StubsManager.stubRequestsPassingTest({ (request: NSURLRequest!) -> Bool in
 ```
 
 ## Adding the library to your project 
-To add the library in your project, you can either use [Cocoapods](http://cocoapods.org) or simply drag the library in your project. See the respective sections below for instructions
+To add the library in your project, you can either use [Cocoapods](http://cocoapods.org) or simply drag the library in your project. See the respective sections below for instructions.
 
 ### Using [Cocoapods](http://cocoapods.org)
-At this time, Cocoapods support for Swift frameworks is supported in a preview [branch](https://github.com/CocoaPods/CocoaPods/tree/swift). Simply [include a Gemfile](http://swiftwala.com/cocoapods-is-ready-for-swift/) in your project pointing to that branch and in your ```Podfile``` add:
+At this time, Cocoapods support for Swift frameworks is supported in a [pre-release](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/). In your ```Podfile``` add:
 
 ```
 pod 'AGURLSessionStubs'
 ```
 
 and then:
+
 ```bash
-bundle install
-bundle exec pod install
+pod install
 ```
 
 to install your dependencies
@@ -93,7 +93,7 @@ select `Add Files To YourApp...`.
 
 Choose `AGURLSessionStubs.xcodeproj`
 
-Once you've added the Quick project, you should see it in Xcode's project
+Once you've added the AGURLSessionStubs project, you should see it in Xcode's project
 navigator, grouped with your tests.
 
 ![](AGURLSessionStubs_usage.png)

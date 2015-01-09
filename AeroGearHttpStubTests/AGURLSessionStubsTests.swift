@@ -17,7 +17,7 @@
 
 import UIKit
 import XCTest
-import AGURLSessionStubs
+import AeroGearHttpStub
 
 class AGURLSessionStubsTests: XCTestCase {
     

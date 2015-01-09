@@ -1,7 +1,7 @@
 language: objective-c
 osx_image: xcode611
-xcode_project: AGURLSessionStubs.xcodeproj
-xcode_scheme: AGURLSessionStubs
+xcode_project: AeroGearHttpStub.xcodeproj
+xcode_scheme: AeroGearHttpStub
 xcode_sdk: iphonesimulator
 
 notifications:

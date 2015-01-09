@@ -5,7 +5,11 @@ xcode_scheme: AGURLSessionStubs
 xcode_sdk: iphonesimulator
 
 before_install:
-    - gem install cocoapods -v 0.36.0.beta.1 --no-rdoc --no-ri --no-document --quiet
+    - gem install cocoapods --pre --no-rdoc --no-ri --no-document --quiet
+
+script:
+    - set -o pipefail && xcodebuild -workspace AGURLSessionStubs.xcworkspace -scheme AGURLSessionStubs -sdk iphonesimulator -configuration Release clean test
+
 
 notifications:
   irc: "irc.freenode.org#aerogear"

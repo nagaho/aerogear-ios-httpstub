@@ -54,18 +54,6 @@ StubsManager.stubRequestsPassingTest({ (request: NSURLRequest!) -> Bool in
 }))
 ```
 
-### Build, test and play with aerogear-ios-httpstub
-
-1. Clone this project
-
-2. Get the dependencies
-
-The project uses [cocoapods](http://cocoapods.org) 0.36.0 pre-release for handling its dependencies. As a pre-requisite, install [cocoapods pre-release](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/) and then install the pod. On the root directory of the project run:
-```bash
-pod install
-```
-3. open AGURLSessionStubs.xcworkspace
-
 ## Adding the library to your project 
 To add the library in your project, you can either use [Cocoapods](http://cocoapods.org) or manual install in your project. See the respective sections below for instructions:
 

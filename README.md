@@ -75,7 +75,7 @@ to install your dependencies
 ### Manual Installation
 Follow these steps to add the library in your Swift project:
 
-1. Add AeroGearHttp as a [submodule](http://git-scm.com/docs/git-submodule) in your project. Open a terminal and navigate to your project directory. Then enter:
+1. Add AGURLSessionStubs as a [submodule](http://git-scm.com/docs/git-submodule) in your project. Open a terminal and navigate to your project directory. Then enter:
 ```bash
 git submodule add https://github.com/aerogear/aerogear-ios-httpstub.git
 ```

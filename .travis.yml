@@ -4,6 +4,9 @@ xcode_project: AeroGearHttpStub.xcodeproj
 xcode_scheme: AeroGearHttpStub
 xcode_sdk: iphonesimulator
 
+script:
+    - xcodebuild -project AeroGearHttpStub.xcodeproj -scheme AeroGearHttpStub -sdk iphonesimulator -configuration Release clean test
+
 notifications:
   irc: "irc.freenode.org#aerogear"
 

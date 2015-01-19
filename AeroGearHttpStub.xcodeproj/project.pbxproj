@@ -14,6 +14,7 @@
 		48E2E0311A5FD84000883A9E /* stub.json in Resources */ = {isa = PBXBuildFile; fileRef = 48E2E0301A5FD84000883A9E /* stub.json */; };
 		48E2E0371A5FDD6A00883A9E /* AGURLSessionStubs.h in Headers */ = {isa = PBXBuildFile; fileRef = 48E2E0361A5FDD6A00883A9E /* AGURLSessionStubs.h */; };
 		48E2E0391A5FDD9100883A9E /* AGURLSessionStubsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E2E0381A5FDD9100883A9E /* AGURLSessionStubsTests.swift */; };
+		6F1049651A6D273D009C3E66 /* AeroGearHttpStub.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 48E2E00A1A5FD5DA00883A9E /* AeroGearHttpStub.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +26,20 @@
 			remoteInfo = AeroGearHttpStub;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6F1049641A6D2734009C3E66 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6F1049651A6D273D009C3E66 /* AeroGearHttpStub.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		48E2E00A1A5FD5DA00883A9E /* AeroGearHttpStub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AeroGearHttpStub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,6 +168,7 @@
 				48E2E0111A5FD5DA00883A9E /* Sources */,
 				48E2E0121A5FD5DA00883A9E /* Frameworks */,
 				48E2E0131A5FD5DA00883A9E /* Resources */,
+				6F1049641A6D2734009C3E66 /* Copy Frameworks */,
 			);
 			buildRules = (
 			);
